@@ -4,7 +4,7 @@
 
 # Set timezone to America/Mexico_City
 #cp /etc/timezone /etc/timezone.dist
-wget https://chatt6.nyc3.digitaloceanspaces.com/timezone
+wget https://raw.githubusercontent.com/ezaratemx/prov/main/timezone.txt
 rm etc/timezone
 mv timezone /etc/timezone
 #echo "America/Mexico_City" > /etc/timezone
