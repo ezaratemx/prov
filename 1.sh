@@ -15,5 +15,6 @@ sed -i -e "/^Value: en_GB.UTF-8/s/en_GB/en_US/" \
        -e "/^ locales = en_GB.UTF-8/s/en_GB/en_US/" /var/cache/debconf/config.dat
 locale-gen
 update-locale LANG=en_US.UTF-8
-wget https://chatt6.nyc3.digitaloceanspaces.com/2.sh
+wget https://raw.githubusercontent.com/ezaratemx/prov/main/2.sh
+chmod +x 2.sh
 reboot
