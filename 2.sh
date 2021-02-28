@@ -15,4 +15,3 @@ systemctl enable telegraf
 #ip para privoxy
 direccion=$(zerotier-cli get af78bf9436b7ddf6 ip)
 sed -i "s/ipaddr/$direccion/g" /etc/privoxy/config
-
