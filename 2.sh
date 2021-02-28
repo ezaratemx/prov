@@ -10,6 +10,7 @@ echo "deb https://repos.influxdata.com/debian buster stable" | tee /etc/apt/sour
 apt-get update
 apt-get install -y telegraf
 usermod -G video telegraf
+mv telegraf.conf /etc/telegraf/telegraf.conf
 systemctl enable telegraf
 
 #ip para privoxy
