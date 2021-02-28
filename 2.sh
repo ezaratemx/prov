@@ -29,7 +29,5 @@ echo "deb https://repos.influxdata.com/debian buster stable" | tee /etc/apt/sour
 apt-get update
 apt-get install -y telegraf
 systemctl enable telegraf
-zerointerface=$(ls /sys/class/net/ | grep zt*)
-ip -4 addr show  $zerotinterface | sed -nr 's|.*inet ([^ ]+)/.*|\1|p' > ip.txt
-direccion=$(cat ip.txt)
+direccion=$(sudo zerotier-cli get af78bf9436b7ddf6 ip)
 sed -i "s/ipaddr/$direccion/g" /etc/privoxy/config
