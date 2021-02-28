@@ -6,7 +6,7 @@ actionsfile user.action      # User customizations
 filterfile default.filter
 filterfile user.filter      # User customizations
 #logfile logfile
-listen-address  10.241.108.20:8118
+listen-address  ipaddr:8118
 listen-address  [::1]:8118
 toggle  1
 enable-remote-toggle  0
