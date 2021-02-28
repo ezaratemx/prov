@@ -1,15 +1,5 @@
-# At this point, either log out and log in again, or reboot.
-# Rebooting seems easier if this is really being run from fabric.
-# If you do any upgrades, you may have to run the locale commands again
-
-# Set timezone to America/Mexico_City
-#cp /etc/timezone /etc/timezone.dist
-wget https://raw.githubusercontent.com/ezaratemx/prov/main/timezone.txt
-rm etc/timezone
-mv timezone /etc/timezone
 #echo "America/Mexico_City" > /etc/timezone
-dpkg-reconfigure -f noninteractive tzdata
-
+timedatectl set-timezone America/Mexico_City
 # Set the keyboard to US, don't set any modifier keys, etc.
 #cp /etc/default/keyboard /etc/default/keyboard.dist
 #sed -i -e "/XKBLAYOUT=/s/gb/us/" /etc/default/keyboard
