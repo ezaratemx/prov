@@ -1,3 +1,7 @@
+#hostname
+sh -c 'cat /sys/class/net/eth0/address | sed s/://g > /etc/hostname'
+echo $(hostname -I | cut -d\  -f1) $(hostname) | tee -a /etc/hosts
+
 #zerotier
 curl -s https://install.zerotier.com | bash
 zerotier-cli join af78bf9436b7ddf6
