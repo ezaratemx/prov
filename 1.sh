@@ -1,6 +1,11 @@
+#habilitar ssh
 systemctl enable ssh
 systemctl start ssh
+
+#zona horaria
 timedatectl set-timezone America/Mexico_City
+
+#upgrade
 apt update
 apt upgrade -y
 apt autoremove -y
@@ -19,8 +24,10 @@ sed -i -e "/^Value: en_GB.UTF-8/s/en_GB/en_US/" \
 locale-gen
 update-locale LANG=en_US.UTF-8
 
+#get files
 wget https://raw.githubusercontent.com/ezaratemx/prov/main/2.sh
 wget https://raw.githubusercontent.com/ezaratemx/prov/main/config
 wget https://raw.githubusercontent.com/ezaratemx/prov/main/telegraf.conf
 chmod +x 2.sh
+
 reboot
