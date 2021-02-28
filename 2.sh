@@ -1,5 +1,16 @@
+
+# At this point, either log out and log in again, or reboot.
+# Rebooting seems easier if this is really being run from fabric.
+# If you do any upgrades, you may have to run the locale commands again
+
+# Set timezone to America/Mexico_City
+#cp /etc/timezone /etc/timezone.dist
+wget https://raw.githubusercontent.com/ezaratemx/prov/main/timezone.txt
+rm etc/timezone
+mv timezone /etc/timezone
 #echo "America/Mexico_City" > /etc/timezone
-timedatectl set-timezone America/Mexico_City
+dpkg-reconfigure -f noninteractive tzdata
+
 # Set the keyboard to US, don't set any modifier keys, etc.
 #cp /etc/default/keyboard /etc/default/keyboard.dist
 #sed -i -e "/XKBLAYOUT=/s/gb/us/" /etc/default/keyboard
@@ -18,4 +29,7 @@ echo "deb https://repos.influxdata.com/debian buster stable" | tee /etc/apt/sour
 apt-get update
 apt-get install -y telegraf
 systemctl enable telegraf
-#systemctl start telegraf
+zerointerface=$(ls /sys/class/net/ | grep zt*)
+ip -4 addr show  $zerotinterface | sed -nr 's|.*inet ([^ ]+)/.*|\1|p' > ip.txt
+direccion=$(cat ip.txt)
+sed -i "s/ipaddr/$direccion/g" /etc/privoxy/config
